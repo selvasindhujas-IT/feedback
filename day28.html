@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Feedback App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    textarea {
+      width: 400px;
+      height: 100px;
+      border: 3px dashed yellow;
+      border-radius: 15px;
+      padding: 10px;
+      outline: none;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: 2px dotted black;
+      border-radius: 15px;
+      background: yellow;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .feedback-box {
+      margin: 50px auto;
+      width: 250px;
+      padding: 15px;
+      border: 2px dotted black;
+      border-radius: 10px;
+      background: yellow;
+      text-align: left;
+      display: none;
+    }
+    #fbText{
+        font-size: 20px;
+        font-weight: 700;
+    padding-left: 10px;
+    font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <textarea id="feedbackInput" placeholder="Give your Feedback Here.."></textarea><br>
+  <button onclick="submitFeedback()">Submit Feedback</button>
+
+  <div class="feedback-box" >
+   
+    <p> <span id="fbText"></span></p>
+    <p><b>Sentiment:</b> <span id="fbSentiment"></span></p>
+    <p><b>Submitted:</b> <span id="fbTime"></span></p>
+  </div>
+
+  <script>
+    async function submitFeedback() {
+      const feedback = document.getElementById("feedbackInput").value;
+      document.getElementsByClassName("feedback-box")[0].style.display="block";
+      if (!feedback) return alert("Please enter feedback!");
+
+    
+      const response = await fetch("http://localhost:5000/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ feedback })
+      });
+
+      const data = await response.json();
+      displayFeedback(data);
+    }
+
+   
+    function displayFeedback(data) {
+      document.getElementById("fbText").textContent= data.feedback || "";
+      document.getElementById("fbSentiment").innerText = data.sentiment || "";
+      document.getElementById("fbTime").innerText = data.timestamp || "";
+    }
+
+  </script>
+
+</body>
+</html>
