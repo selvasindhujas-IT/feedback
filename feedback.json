@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "feedback": "this app is amazing",
+    "sentiment": "Positive",
+    "timestamp": "28/8/2025, 11:01:31 pm"
+  },
+  {
+    "id": 2,
+    "feedback": "this app is okay,nothing special",
+    "sentiment": "Neutral",
+    "timestamp": "28/8/2025, 11:02:21 pm"
+  },
+  {
+    "id": 3,
+    "feedback": "this app is amazing,i loved it",
+    "sentiment": "Positive",
+    "timestamp": "28/8/2025, 11:02:36 pm"
+  },
+  {
+    "id": 4,
+    "feedback": "this app is bad",
+    "sentiment": "Negative",
+    "timestamp": "28/8/2025, 11:02:46 pm"
+  },
+  {
+    "id": 5,
+    "feedback": "Not too good also not too bad",
+    "sentiment": "Neutral",
+    "timestamp": "28/8/2025, 11:03:02 pm"
+  }
+]
