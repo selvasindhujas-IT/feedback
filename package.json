@@ -1,0 +1,20 @@
+{
+  "name": "day20",
+  "version": "1.0.0",
+  "main": "day20.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "fs": "^0.0.1-security",
+    "node-fetch": "^3.3.2",
+    "nodemon": "^3.1.10",
+    "sentiment": "^5.0.2"
+  }
+}
